@@ -1,0 +1,41 @@
+name: Publog Event Notifier
+
+on:
+  # 매일 오전 10시 KST (UTC 01:00) 자동 실행 (한국 공휴일은 스크립트에서 체크)
+  schedule:
+    - cron: '0 1 * * *'
+  
+  # 수동 실행 지원
+  workflow_dispatch:
+
+jobs:
+  check-events:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      
+      - name: Run Publog Event Bot
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: |
+          python publog_event_bot.py
+      
+      - name: Commit and push state changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add data/events.json
+          git diff --quiet && git diff --staged --quiet || git commit -m "Update events state [skip ci]"
+          git push
