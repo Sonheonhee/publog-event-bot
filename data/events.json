@@ -1,18 +1,16 @@
 {
   "events": {
     "https://m.publog.co.kr/service_s7/event/0_deal/page/2026/01_4_DBCP/m_evt.asp?publog_mode=abyz": "PUBLOG",
-    "https://m.publog.co.kr/service_s7/event/2025/251230_printbook/m_evt.asp?publog_mode=abyz": "",
-    "https://m.publog.co.kr/service_s7/event/2025/250520_editprint/m_evt.asp?publog_mode=abyz": "",
-    "https://m.publog.co.kr/service_s7/event/2025/250922_apparel/m_evt.asp?publog_mode=abyz": "",
     "https://m.publog.co.kr/service_s7/event/2025/251230_printbook/m_evt.asp?publog_mode=abyz&utm_source=publog&utm_medium=andbanner&utm_id=8663": "",
     "https://m.publog.co.kr/service_s7/event/2022/220928_photo/251103/m_evt.asp?publog_mode=abyz&utm_source=publog&utm_medium=andbanner&utm_id=8710": "",
     "https://m.publog.co.kr/service_s7/event/2025/250520_editprint//m_evt.asp?publog_mode=abyz&utm_source=publog&utm_medium=andbanner&utm_id=8676": "",
+    "https://m.publog.co.kr/service_s7/event/2025/250922_apparel/m_evt.asp?publog_mode=abyz": "",
     "https://m.publog.co.kr/service_s7/event/2024/241112_ddibusticker/m_evt.asp?publog_mode=abyz&utm_source=publog&utm_medium=iosbanner&utm_id=8634": "",
     "https://m.publog.co.kr/service_s7/event/2024/241011_welcome/m_evt.asp?publog_mode=abyz": "",
     "https://m.publog.co.kr/service_s7/event/2024/240129_review/m_evt.asp?publog_mode=abyz&utm_source=publog&utm_medium=iosbanner&utm_id=8649": "",
     "https://m.publog.co.kr/service_s7/event/2025/251224_hp/m_evt.asp?publog_mode=abyz&utm_source=publog&utm_medium=andbanner&utm_id=8712": "",
     "https://m.publog.co.kr/service_s7/event/2023/230223_attendance/m_evt.asp?publog_mode=abyz": ""
   },
-  "last_updated": "2026-01-29 13:04:38 KST",
-  "total_count": 12
+  "last_updated": "2026-01-30 10:37:00 KST",
+  "total_count": 10
 }
