@@ -1,14 +1,18 @@
 name: Publog Event Notifier
 
 on:
+  # 매일 오전 10시 KST (UTC 01:00) 자동 실행
   schedule:
     - cron: '0 1 * * *'
+  
+  # 수동 실행 지원
   workflow_dispatch:
 
 jobs:
   check-events:
     runs-on: ubuntu-latest
-    # [수정 1] 권한 설정을 명확하게 유지합니다.
+    
+    # [해결 1] GITHUB_TOKEN에 쓰기 권한을 명시적으로 부여 (403 에러 방지)
     permissions:
       contents: write
     
@@ -16,9 +20,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          # [수정 2] 기본 GITHUB_TOKEN을 사용하며, 원격 저장소 인증 정보를 유지합니다.
+          # 전체 히스토리를 가져와서 rebase가 가능하도록 설정
           fetch-depth: 0
-
+      
       - name: Set up Python 3.11
         uses: actions/setup-python@v5
         with:
@@ -36,23 +40,26 @@ jobs:
           python publog_event_bot.py
       
       - name: Commit and push state changes
-        # 오류가 나도 워크플로 전체가 실패로 뜨지 않게 유지 (선택 사항)
+        # 에러가 발생해도 워크플로가 중단되지 않도록 설정 (선택 사항)
         continue-on-error: true 
         run: |
-          # [수정 3] 안전한 디렉토리 설정 추가 (권한 문제 방지)
+          # [해결 2] 보안 및 권한 관련 사전 설정
           git config --global --add safe.directory /github/workspace
-          
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           
-          # 변경사항 확인 및 커밋
+          # 변경된 파일 스테이징
           git add data/events.json
           
-          # 변경사항이 있을 때만 커밋 및 푸시 수행
+          # [해결 3] 변경 사항이 있을 때만 안전하게 커밋 및 푸시
           if ! git diff --cached --quiet; then
             git commit -m "Update events state [skip ci]"
-            # [수정 4] push 시 원격 저장소 경로 재설정 (403 방지)
+            
+            # 원격의 최신 변경사항을 가져와 내 커밋을 그 위에 재배치 (Non-fast-forward 에러 방지)
+            git pull --rebase origin main
+            
+            # 최종 푸시
             git push origin main
           else
-            echo "No changes to commit"
+            echo "No changes to commit. Skipping push."
           fi
