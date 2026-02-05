@@ -246,7 +246,7 @@ def send_discord_notification(events: List[Dict[str, str]], notification_type: s
     """
     if not DISCORD_WEBHOOK_URL:
         safe_print("[ERROR] DISCORD_WEBHOOK_URL environment variable not set")
-        return
+        sys.exit(1)
     
     if not events:
         safe_print("[INFO] No events to send")
@@ -371,6 +371,7 @@ def send_error_notification(error_type: str, error_message: str, details: str = 
     """실패 시 Discord로 에러 알림 전송"""
     if not DISCORD_WEBHOOK_URL:
         safe_print("[ERROR] Cannot send error notification - DISCORD_WEBHOOK_URL not set")
+        sys.exit(1)
         return
     
     try:
@@ -445,7 +446,7 @@ def main():
     
     if not current_urls:
         safe_print("[WARNING] No events found or failed to fetch")
-        return
+        sys.exit(1)
     
     # 3. 신규 및 변경 이벤트 감지
     safe_print(f"\n[STEP 3] Detecting new and modified events")
