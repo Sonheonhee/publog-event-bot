@@ -2,7 +2,7 @@ name: Publog Event Notifier
 
 on:
   schedule:
-    - cron: '0 1 * * *' # 매일 오전 10시 KST (UTC 01:00)
+    - cron: '15 1 * * *' # 매일 오전 10시 15분 KST (UTC 01:15) - 트래픽 분산
   workflow_dispatch: # 수동 실행 지원
 
 jobs:

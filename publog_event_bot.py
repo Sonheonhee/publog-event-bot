@@ -363,8 +363,9 @@ def send_discord_notification(events: List[Dict[str, str]], notification_type: s
             error_message=f"{len(failed_batches)}개 배치 전송 실패 (총 {len(events)}개 이벤트 중)",
             details=failure_details
         )
-
-
+        return False  # 전송 실패
+        
+    return True  # 전송 성공
 
 
 def send_error_notification(error_type: str, error_message: str, details: str = "") -> None:
@@ -517,29 +518,39 @@ def main():
     
     # 7. Discord 알림 전송
     safe_print(f"\n[STEP 7] Sending Discord notifications")
+    notification_success = True
     
     if new_events or modified_events:
         # 신규 이벤트 알림
         if new_events:
             safe_print(f"  Sending {len(new_events)} new event notifications")
-            send_discord_notification(new_events, notification_type="new")
+            if not send_discord_notification(new_events, notification_type="new"):
+                notification_success = False
         
         # 변경된 이벤트 알림
         if modified_events:
             safe_print(f"  Sending {len(modified_events)} modified event notifications")
-            send_discord_notification(modified_events, notification_type="modified")
+            if not send_discord_notification(modified_events, notification_type="modified"):
+                notification_success = False
     else:
         # 이벤트가 없어도 알림 전송
         safe_print(f"  No new or modified events detected - Sending status notification")
-        send_discord_notification([{"title": f"총 {len(current_events)}개의 이벤트 모니터링 중", "url": TARGET_URL}], notification_type="none")
+        if not send_discord_notification([{"title": f"총 {len(current_events)}개의 이벤트 모니터링 중", "url": TARGET_URL}], notification_type="none"):
+            notification_success = False
     
     # 8. 상태 저장
     safe_print(f"\n[STEP 8] Saving state")
     save_state(current_events)
     
     safe_print("=" * 60)
-    safe_print("Publog Event Bot - Completed")
+    if notification_success:
+        safe_print("Publog Event Bot - Completed Successfully")
+    else:
+        safe_print("Publog Event Bot - Completed with Errors (Notification Failed)")
     safe_print("=" * 60)
+    
+    if not notification_success:
+        sys.exit(1)
 
 
 if __name__ == "__main__":
