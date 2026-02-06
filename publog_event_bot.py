@@ -174,7 +174,7 @@ def main():
     else:
         safe_print("✨ 새로운 이벤트가 없습니다.")
         # 정기 체크 알림 (선택 사항)
-        # send_discord_notification([{"title": "감시 중", "url": TARGET_URL}], "none")
+        send_discord_notification([{"title": "감시 중", "url": TARGET_URL}], "none")
 
     # 상태 업데이트 및 저장
     updated_state = {url: fetch_event_title(url) if url in new_urls else prev_events.get(url) for url in current_urls}

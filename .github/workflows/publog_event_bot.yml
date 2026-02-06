@@ -38,7 +38,8 @@ jobs:
       
       - name: Commit and push state changes
         # 에러 발생 시에도 전체 워크플로 실패 처리를 방지하려면 유지
-        continue-on-error: true 
+        # 에러 발생 시 워크플로 실패 처리 (명확한 가시성 확보)
+        # continue-on-error: true  <-- Removed 
         run: |
           # [해결] 보안 디렉토리 및 사용자 설정
           git config --global --add safe.directory /github/workspace
