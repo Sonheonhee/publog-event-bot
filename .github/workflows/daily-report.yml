@@ -1,0 +1,45 @@
+
+name: Daily Stock Report
+
+on:
+  schedule:
+    # 21:00 KST = 12:00 UTC
+    - cron: '0 12 * * *'
+  workflow_dispatch:
+
+jobs:
+  daily-report:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+        cache: 'pip'
+
+    - name: Install Python dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pandas numpy
+
+    - name: Install Node dependencies
+      run: npm ci
+
+    - name: Run Daily Report
+      env:
+        DISCORD_WEBHOOK_URL: ${{ secrets.STOCK_DISCORD_WEBHOOK_URL }}
+        KIS_APP_KEY: ${{ secrets.KIS_APP_KEY }}
+        KIS_APP_SECRET: ${{ secrets.KIS_APP_SECRET }}
+        # Setting API URL to empty/mock since we use direct KIS client
+        NEXT_PUBLIC_APP_URL: "http://localhost:3000" 
+      run: npx tsx scripts/gh-monitor.ts

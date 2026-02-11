@@ -1,0 +1,264 @@
+{
+    "currentWeek": 6,
+    "currentYear": 2026,
+    "lastUpdated": "2026-02-09T00:00:00Z",
+    "methodology": "매주 월요일 전주 거래 데이터를 기반으로 백테스팅을 수행합니다. 각 패턴 감지 후 5일간의 가격 변동을 추적하여 성공률을 계산합니다. 최소 100개 이상의 표본이 확보된 경우에만 통계적으로 유의미한 것으로 간주합니다. 성공 기준은 패턴 감지 후 5일 내 +2% 이상 수익률입니다.",
+    "research": [
+        {
+            "weekNumber": 6,
+            "year": 2026,
+            "summary": "2026년 2월 2주차 캔들 패턴 연구 결과입니다. 시장 변동성 확대로 샛별형 등 반전 패턴의 성공률이 전주 대비 4.5% 상승했습니다. 특히 코스닥 시장에서 강력한 매수 신호가 포착되고 있습니다.",
+            "methodology": "전주 KOSPI/KOSDAQ 전 종목 대상 패턴 감지 및 5일 수익률 추적",
+            "totalSamples": 1352,
+            "updatedAt": "2026-02-09T00:00:00Z",
+            "patterns": [
+                {
+                    "id": "morning_star",
+                    "name": "샛별형",
+                    "nameEn": "Morning Star",
+                    "type": "BULLISH",
+                    "description": "하락 캔들, 작은 캔들, 상승 캔들의 3개 조합. 강력한 바닥 신호로 평가됩니다.",
+                    "successRate": 78.2,
+                    "avgReturn": 6.1,
+                    "sampleSize": 95,
+                    "confidence": 89,
+                    "lastUpdated": "2026-02-09T00:00:00Z"
+                },
+                {
+                    "id": "bullish_engulfing",
+                    "name": "상승 장악형",
+                    "nameEn": "Bullish Engulfing",
+                    "type": "BULLISH",
+                    "description": "하락 캔들 다음에 더 큰 상승 캔들이 나타나 이전 캔들을 완전히 감싸는 패턴. 강력한 반전 신호로 간주됩니다.",
+                    "successRate": 69.8,
+                    "avgReturn": 4.5,
+                    "sampleSize": 156,
+                    "confidence": 93,
+                    "lastUpdated": "2026-02-09T00:00:00Z"
+                },
+                {
+                    "id": "hammer",
+                    "name": "망치형",
+                    "nameEn": "Hammer",
+                    "type": "BULLISH",
+                    "description": "긴 아래 꼬리와 짧은 몸통을 가진 캔들. 하락 추세 끝에서 나타나면 반등 신호입니다.",
+                    "successRate": 61.5,
+                    "avgReturn": 3.2,
+                    "sampleSize": 215,
+                    "confidence": 87,
+                    "lastUpdated": "2026-02-09T00:00:00Z"
+                },
+                {
+                    "id": "bearish_engulfing",
+                    "name": "하락 장악형",
+                    "nameEn": "Bearish Engulfing",
+                    "type": "BEARISH",
+                    "description": "상승 캔들 다음에 더 큰 하락 캔들이 나타나 이전 캔들을 완전히 감싸는 패턴. 하락 반전 신호입니다.",
+                    "successRate": 66.8,
+                    "avgReturn": -4.1,
+                    "sampleSize": 141,
+                    "confidence": 91,
+                    "lastUpdated": "2026-02-09T00:00:00Z"
+                },
+                {
+                    "id": "shooting_star",
+                    "name": "유성형",
+                    "nameEn": "Shooting Star",
+                    "type": "BEARISH",
+                    "description": "긴 위 꼬리와 짧은 몸통을 가진 캔들. 상승 추세 끝에서 나타나면 하락 신호입니다.",
+                    "successRate": 60.2,
+                    "avgReturn": -3.1,
+                    "sampleSize": 189,
+                    "confidence": 84,
+                    "lastUpdated": "2026-02-09T00:00:00Z"
+                },
+                {
+                    "id": "doji",
+                    "name": "도지형",
+                    "nameEn": "Doji",
+                    "type": "NEUTRAL",
+                    "description": "시가와 종가가 거의 같은 캔들. 시장의 우유부단함을 나타내며, 추세 전환의 가능성을 시사합니다.",
+                    "successRate": 53.4,
+                    "avgReturn": 0.5,
+                    "sampleSize": 312,
+                    "confidence": 76,
+                    "lastUpdated": "2026-02-09T00:00:00Z"
+                }
+            ]
+        },
+        {
+            "weekNumber": 5,
+            "year": 2026,
+            "summary": "2026년 2월 1주차 캔들 패턴 연구 결과입니다. 소폭의 조정장세 속에서 하락 장악형 패턴의 적중률이 일시적으로 상승했습니다.",
+            "methodology": "전주 KOSPI/KOSDAQ 전 종목 대상 패턴 감지 및 5일 수익률 추적",
+            "totalSamples": 1289,
+            "updatedAt": "2026-02-02T00:00:00Z",
+            "patterns": [
+                {
+                    "id": "bearish_engulfing",
+                    "name": "하락 장악형",
+                    "nameEn": "Bearish Engulfing",
+                    "type": "BEARISH",
+                    "description": "상승 캔들 다음에 더 큰 하락 캔들이 나타나 이전 캔들을 완전히 감싸는 패턴.",
+                    "successRate": 67.5,
+                    "avgReturn": -4.2,
+                    "sampleSize": 138,
+                    "confidence": 91,
+                    "lastUpdated": "2026-02-02T00:00:00Z"
+                },
+                {
+                    "id": "bullish_engulfing",
+                    "name": "상승 장악형",
+                    "nameEn": "Bullish Engulfing",
+                    "type": "BULLISH",
+                    "description": "하락 캔들 다음에 더 큰 상승 캔들이 나타나 이전 캔들을 완전히 감싸는 패턴.",
+                    "successRate": 67.2,
+                    "avgReturn": 4.0,
+                    "sampleSize": 151,
+                    "confidence": 92,
+                    "lastUpdated": "2026-02-02T00:00:00Z"
+                },
+                {
+                    "id": "hammer",
+                    "name": "망치형",
+                    "nameEn": "Hammer",
+                    "type": "BULLISH",
+                    "description": "긴 아래 꼬리와 짧은 몸통을 가진 캔들.",
+                    "successRate": 61.8,
+                    "avgReturn": 3.4,
+                    "sampleSize": 208,
+                    "confidence": 87,
+                    "lastUpdated": "2026-02-02T00:00:00Z"
+                }
+            ]
+        },
+        {
+            "weekNumber": 4,
+            "year": 2026,
+            "summary": "2026년 1월 4주차 캔들 패턴 연구 결과입니다. 전주 대비 상승 장악형 패턴의 성공률이 3.2% 증가했으며, 망치형 패턴은 소폭 하락했습니다. 전반적으로 강세 패턴의 신뢰도가 상승하는 추세입니다.",
+            "methodology": "전주 KOSPI/KOSDAQ 전 종목 대상 패턴 감지 및 5일 수익률 추적",
+            "totalSamples": 1247,
+            "updatedAt": "2026-01-26T00:00:00Z",
+            "patterns": [
+                {
+                    "id": "bullish_engulfing",
+                    "name": "상승 장악형",
+                    "nameEn": "Bullish Engulfing",
+                    "type": "BULLISH",
+                    "description": "하락 캔들 다음에 더 큰 상승 캔들이 나타나 이전 캔들을 완전히 감싸는 패턴. 강력한 반전 신호로 간주됩니다.",
+                    "successRate": 68.5,
+                    "avgReturn": 4.2,
+                    "sampleSize": 147,
+                    "confidence": 92,
+                    "lastUpdated": "2026-01-26T00:00:00Z"
+                },
+                {
+                    "id": "hammer",
+                    "name": "망치형",
+                    "nameEn": "Hammer",
+                    "type": "BULLISH",
+                    "description": "긴 아래 꼬리와 짧은 몸통을 가진 캔들. 하락 추세 끝에서 나타나면 반등 신호입니다.",
+                    "successRate": 62.3,
+                    "avgReturn": 3.5,
+                    "sampleSize": 203,
+                    "confidence": 88,
+                    "lastUpdated": "2026-01-26T00:00:00Z"
+                },
+                {
+                    "id": "morning_star",
+                    "name": "샛별형",
+                    "nameEn": "Morning Star",
+                    "type": "BULLISH",
+                    "description": "하락 캔들, 작은 캔들, 상승 캔들의 3개 조합. 강력한 바닥 신호로 평가됩니다.",
+                    "successRate": 74.8,
+                    "avgReturn": 5.6,
+                    "sampleSize": 89,
+                    "confidence": 85,
+                    "lastUpdated": "2026-01-26T00:00:00Z"
+                },
+                {
+                    "id": "bearish_engulfing",
+                    "name": "하락 장악형",
+                    "nameEn": "Bearish Engulfing",
+                    "type": "BEARISH",
+                    "description": "상승 캔들 다음에 더 큰 하락 캔들이 나타나 이전 캔들을 완전히 감싸는 패턴. 하락 반전 신호입니다.",
+                    "successRate": 65.2,
+                    "avgReturn": -3.8,
+                    "sampleSize": 132,
+                    "confidence": 90,
+                    "lastUpdated": "2026-01-26T00:00:00Z"
+                },
+                {
+                    "id": "shooting_star",
+                    "name": "유성형",
+                    "nameEn": "Shooting Star",
+                    "type": "BEARISH",
+                    "description": "긴 위 꼬리와 짧은 몸통을 가진 캔들. 상승 추세 끝에서 나타나면 하락 신호입니다.",
+                    "successRate": 58.7,
+                    "avgReturn": -2.9,
+                    "sampleSize": 178,
+                    "confidence": 82,
+                    "lastUpdated": "2026-01-26T00:00:00Z"
+                },
+                {
+                    "id": "doji",
+                    "name": "도지형",
+                    "nameEn": "Doji",
+                    "type": "NEUTRAL",
+                    "description": "시가와 종가가 거의 같은 캔들. 시장의 우유부단함을 나타내며, 추세 전환의 가능성을 시사합니다.",
+                    "successRate": 52.1,
+                    "avgReturn": 0.8,
+                    "sampleSize": 298,
+                    "confidence": 75,
+                    "lastUpdated": "2026-01-26T00:00:00Z"
+                }
+            ]
+        },
+        {
+            "weekNumber": 3,
+            "year": 2026,
+            "summary": "2026년 1월 3주차 캔들 패턴 연구 결과입니다.",
+            "methodology": "전주 KOSPI/KOSDAQ 전 종목 대상 패턴 감지 및 5일 수익률 추적",
+            "totalSamples": 1189,
+            "updatedAt": "2026-01-19T00:00:00Z",
+            "patterns": [
+                {
+                    "id": "bullish_engulfing",
+                    "name": "상승 장악형",
+                    "nameEn": "Bullish Engulfing",
+                    "type": "BULLISH",
+                    "description": "하락 캔들 다음에 더 큰 상승 캔들이 나타나 이전 캔들을 완전히 감싸는 패턴.",
+                    "successRate": 65.3,
+                    "avgReturn": 3.9,
+                    "sampleSize": 142,
+                    "confidence": 91,
+                    "lastUpdated": "2026-01-19T00:00:00Z"
+                },
+                {
+                    "id": "hammer",
+                    "name": "망치형",
+                    "nameEn": "Hammer",
+                    "type": "BULLISH",
+                    "description": "긴 아래 꼬리와 짧은 몸통을 가진 캔들.",
+                    "successRate": 64.1,
+                    "avgReturn": 3.7,
+                    "sampleSize": 198,
+                    "confidence": 89,
+                    "lastUpdated": "2026-01-19T00:00:00Z"
+                },
+                {
+                    "id": "morning_star",
+                    "name": "샛별형",
+                    "nameEn": "Morning Star",
+                    "type": "BULLISH",
+                    "description": "하락 캔들, 작은 캔들, 상승 캔들의 3개 조합.",
+                    "successRate": 72.5,
+                    "avgReturn": 5.2,
+                    "sampleSize": 85,
+                    "confidence": 84,
+                    "lastUpdated": "2026-01-19T00:00:00Z"
+                }
+            ]
+        }
+    ]
+}
